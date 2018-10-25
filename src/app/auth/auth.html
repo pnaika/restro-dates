@@ -1,26 +1,32 @@
 <ion-header>
     <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>
-            Log in
+        <ion-title class="app-header">
+            Couple Dates
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="login-content">
     <ion-list>
         <ion-item>
-            <ion-label color="primary">Email</ion-label>
-            <ion-input type="email" placeholder="Enter you email ID"></ion-input>
+            <ion-label color="primary" position="stacked">Email</ion-label>
+            <ion-input type="email" placeholder="Email" [(ngModel)]="email" name="email"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" fixed>Password</ion-label>
-            <ion-input type="password" placeholder="Password"></ion-input>
+            <ion-label color="primary" position="stacked">Password</ion-label>
+            <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
         </ion-item>
     </ion-list>
-    <button ion-button color="secondary">Sign In</button>
-    <button ion-button>Clear</button>
+    <span class="btn-group">
+        <ion-button color="primary" (click)="signInUser()" disabled="{{email.length === 0 || password.length === 0}}">Sign In</ion-button>
+        <ion-button color="primary">Clear</ion-button>
+        New User?
+        <ion-button color="primary" (click)="createNewUser()" disabled="{{email.length === 0 || password.length === 0}}">Sign Up</ion-button>
+    </span>
+
+    <span *ngIf="errorMessage.length > 0" class="error-message">
+        {{errorMessage}}
+    </span>
+
 </ion-content>
