@@ -11,17 +11,23 @@ export class AppComponent {
   public appPages = [
     {
       title: 'New Restaurants',
-      url: '/home',
+      url: '/add-restaurant',
       icon: 'home'
     },
     {
-      title: 'List of Restros',
+      title: 'List of Restaurants',
       url: '/list',
       icon: 'list'
     },
     {
+      title: 'Show All Restaurants',
+      url: '/show-all-list',
+      icon: 'list'
+    },
+    {
       title: 'LogOut',
-      url: '/'
+      url: '/',
+      icon: 'logout'
     }
   ];
 

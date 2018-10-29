@@ -13,6 +13,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import {Toaster} from './common/toaster';
+import {FirebaseService} from '../provider/firebase.provider';
 
 const config = {
   apiKey: 'AIzaSyC313qO2Yye3JbgPwOaGm1Z56j4wz53UpI',
@@ -36,6 +37,7 @@ const config = {
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
+    FirebaseService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

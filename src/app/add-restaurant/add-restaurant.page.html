@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Restaurants
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <p>Enter the restaurant details !</p>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary" position="stacked">Restaurant Name</ion-label>
+      <ion-input type="name" placeholder="Where are you enjoying right now?" [(ngModel)]="name" name="name"></ion-input>
+    </ion-item>
+
+    <ion-label>Location Details</ion-label>
+    <ion-item>
+      <ion-label color="primary" position="stacked">Address</ion-label>
+      <ion-input type="text" placeholder="Address Line 1" [(ngModel)]="location.address" name="address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked">Address 2</ion-label>
+      <ion-input type="text" placeholder="Address Line 2" [(ngModel)]="location.address2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked">City</ion-label>
+      <ion-input type="text" placeholder="City" [(ngModel)]="location.city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked">State</ion-label>
+      <ion-input type="text" placeholder="State" [(ngModel)]="location.state"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked">Country</ion-label>
+      <ion-input type="text" placeholder="Country" [(ngModel)]="location.country"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked">Zip Code</ion-label>
+      <ion-input type="text" placeholder="Zip COde" [(ngModel)]="location.zipCode"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="sentAddressDetails()">Add Restaurants</ion-button>
+</ion-content>
