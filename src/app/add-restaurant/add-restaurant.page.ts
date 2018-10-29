@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {NavController} from '@ionic/angular';
 import {FirebaseService} from '../../provider/firebase.provider';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,9 @@ export class AddRestaurantPage {
     zipCode: ''
   };
   public errorMessage: string = '';
+  public restaurantNearBy = [];
+  public seachText = '';
+  public toggled: boolean = false;
 
   constructor(public nvCtrl: NavController, public afDB: AngularFireDatabase, public fireBaseService: FirebaseService) {
   }
@@ -28,5 +32,11 @@ export class AddRestaurantPage {
       .then(() => {
         console.log('restro is added successfully');
       });
+  }
+
+  public getRestroList() {
+    this.fireBaseService.getRestroNamesFromEatSTreetAPI(this.seachText).subscribe((value) => {
+      this.restaurantNearBy = _.get(value, 'restaurants');
+    });
   }
 }
