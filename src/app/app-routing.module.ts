@@ -8,12 +8,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
+    path: 'add-restaurant',
+    loadChildren: './add-restaurant/add-restaurant.module#AddRestaurantPageModule'
   },
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
+  },
+  {
+    path: 'show-all-list',
+    loadChildren: './show-all-list/show-all-list.module#ShowAllListModule'
   }
 ];
 

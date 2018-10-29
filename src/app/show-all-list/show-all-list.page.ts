@@ -7,18 +7,17 @@ import {Observable} from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-list',
-  templateUrl: 'list.page.html',
-  styleUrls: ['list.page.scss']
+  templateUrl: 'show-all-list.page.html',
+  styleUrls: ['show-all-list.page.scss']
 })
-export class ListPage implements OnInit {
+export class ShowAllListPage implements OnInit {
   public restaurantList: Observable<any []>;
   public restroList: object = [];
-  private currentUserUid = localStorage.getItem('uid');
 
   constructor(public nvCtrl: NavController, public afDB: AngularFireDatabase, public fireBaseService: FirebaseService) {
     this.restaurantList = this.fireBaseService.getRestaurantList();
     this.restaurantList.subscribe((list) => {
-      this.restroList = _.filter(list, (listV) => listV.uid === this.currentUserUid);
+      this.restroList = list;
     });
   }
 

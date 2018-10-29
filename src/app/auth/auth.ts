@@ -15,24 +15,34 @@ export class Auth {
   constructor(public nvCtrl: NavController, public afDB: AngularFireDatabase) {}
 
   public createNewUser(): void {
-    // this.toaster.presentToast();
     this.afDB.database.app.auth().createUserWithEmailAndPassword(this.email, this.password).then((res) => {
-      console.log('response ', res);
-      // this.toaster.dismissToast();
+      this.clearDetails();
     }).catch((error) => {
       this.errorMessage = error.message;
-      // this.toaster.dismissToast();
     });
   }
 
   public signInUser(): void {
-    // this.toaster.presentToast();
     this.afDB.database.app.auth().signInWithEmailAndPassword(this.email, this.password).then((res) => {
-      this.nvCtrl.navigateForward('home');
-      // this.toaster.dismissToast();
+      this.storeDataInLocalStorage(res);
+      this.clearDetails();
+      this.nvCtrl.navigateForward('add-restaurant');
     }).catch((error) => {
       this.errorMessage = error.message;
-      // this.toaster.dismissToast();
     });
+  }
+
+  public clearDetails() {
+    this.email = '';
+    this.password = '';
+    this.errorMessage = '';
+  }
+
+  public storeDataInLocalStorage(res) {
+    if(res.user.uid === localStorage.getItem('uid')) {
+        return;
+    }
+
+    localStorage.setItem('uid', res.user.uid);
   }
 }
