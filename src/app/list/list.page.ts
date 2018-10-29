@@ -24,6 +24,5 @@ export class ListPage implements OnInit {
 
   ngOnInit() {
   }
-
 }
 
