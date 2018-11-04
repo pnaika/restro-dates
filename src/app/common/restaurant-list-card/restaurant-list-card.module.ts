@@ -11,6 +11,9 @@ import { RestaurantListCard } from './restaurant-list-card';
     FormsModule,
     IonicModule,
   ],
-  declarations: [RestaurantListCard]
+  declarations: [RestaurantListCard],
+  exports: [
+    RestaurantListCard
+  ]
 })
 export class RestaurantListCardModule {}

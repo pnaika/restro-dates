@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 import {Observable} from 'rxjs/internal/Observable';
 
 @Component({
-  selector: 'app-list',
+  selector: 'show-all-list',
   templateUrl: 'show-all-list.page.html',
   styleUrls: ['show-all-list.page.scss']
 })

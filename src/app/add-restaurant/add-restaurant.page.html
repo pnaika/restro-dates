@@ -3,6 +3,9 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
         <ion-title>
             Restaurants
         </ion-title>
@@ -21,24 +24,8 @@
         <ion-button color="primary" (click)="getRestroList()">Search</ion-button>
     </span>
 
-    <!--<restaurant-list-card [restaurantList]="restaurantNearBy"></restaurant-list-card>-->
-    <ion-card *ngFor="let rd of restaurantNearBy">
-        <ion-card-header>
-            <ion-avatar float-right>
-                <img [src]="rd.logoUrl">
-            </ion-avatar>
-            <ion-card-subtitle>{{rd.city || ''}} {{rd.state || ''}}</ion-card-subtitle>
-            <ion-card-title>{{rd.name || ''}}</ion-card-title>
-        </ion-card-header>
 
-        <ion-card-content>
-            <ion-label>Food Types : {{rd.foodTypes.toString()}}</ion-label>
-            <ion-label>Max Wait time : {{rd.maxWaitTime}}</ion-label>
-            <ion-label>Pick Up Available: {{rd.offersDelivery}}</ion-label>
-            <ion-label>Delivery Available: {{rd.offersPickup}}</ion-label>
-        </ion-card-content>
-    </ion-card>
-
+    <restaurant-list-card [restaurantList]="restaurantNearBy"></restaurant-list-card>
 
     <ion-list>
         <ion-label>Not in list? Wanna enter address?</ion-label>

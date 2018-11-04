@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {NavController} from '@ionic/angular';
+import {b} from '@angular/core/src/render3';
+import {UserInfo} from 'firebase';
 
 @Component({
   selector: 'auth',
@@ -9,17 +11,25 @@ import {NavController} from '@ionic/angular';
 })
 export class Auth {
   public email: string = '';
+  public name: string = '';
+  public phone: string = '';
   public password: string = '';
   public errorMessage: string = '';
+  public newUser: boolean = false;
 
   constructor(public nvCtrl: NavController, public afDB: AngularFireDatabase) {}
 
-  public createNewUser(): void {
-    this.afDB.database.app.auth().createUserWithEmailAndPassword(this.email, this.password).then((res) => {
+  public async createNewUser(): Promise<void> {
+    try {
+      await this.afDB.database.app.auth().createUserWithEmailAndPassword(this.email, this.password);
+      await this.afDB.database.app.auth().currentUser.updateProfile({displayName: this.name, photoURL: null});
+
+      console.log('New user created ');
       this.clearDetails();
-    }).catch((error) => {
-      this.errorMessage = error.message;
-    });
+
+    } catch (e) {
+      this.errorMessage = e.message;
+    }
   }
 
   public signInUser(): void {
@@ -36,6 +46,8 @@ export class Auth {
     this.email = '';
     this.password = '';
     this.errorMessage = '';
+    this.name = '';
+    this.email = '';
   }
 
   public storeDataInLocalStorage(res) {

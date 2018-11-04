@@ -5,7 +5,7 @@ import {FirebaseService} from '../../provider/firebase.provider';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-home',
+  selector: 'add-restaurant',
   templateUrl: 'add-restaurant.page.html',
   styleUrls: ['add-restaurant.page.scss'],
 })

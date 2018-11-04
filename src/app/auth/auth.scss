@@ -11,3 +11,13 @@
   top: 3rem;
   color: red;
 }
+
+.new-user-text {
+  padding-bottom: 19px;
+  text-align: right;
+
+  .toggle-button {
+    top: 5px;
+    padding-bottom: 4px;
+  }
+}
