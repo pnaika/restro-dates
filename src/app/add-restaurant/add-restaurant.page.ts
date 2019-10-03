@@ -34,6 +34,10 @@ export class AddRestaurantPage {
       });
   }
 
+  public disableButton() {
+
+  }
+
   public getRestroList() {
     this.fireBaseService.getRestroNamesFromEatSTreetAPI(this.seachText).subscribe((value) => {
       this.restaurantNearBy = _.get(value, 'restaurants');
