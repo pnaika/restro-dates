@@ -33,7 +33,6 @@
         <ion-button *ngIf="!newUser" color="primary" (click)="signInUser()" disabled="{{email.length === 0 || password.length === 0}}">Sign In</ion-button>
         <ion-button *ngIf="newUser" color="primary" (click)="createNewUser()" disabled="{{email.length === 0 || password.length === 0}}">Sign Up</ion-button>
         <ion-button color="primary" (click)="clearDetails()">Clear</ion-button>
-
     </span>
 
     <span *ngIf="errorMessage.length > 0" class="error-message">
