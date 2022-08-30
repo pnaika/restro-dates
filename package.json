@@ -43,7 +43,7 @@
     "firebase": "^5.1.0",
     "ionic-angular": "^3.9.2",
     "lodash": "^4.17.11",
-    "moment-timezone": "^0.5.23",
+    "moment-timezone": "^0.5.35",
     "rxjs": "6.2.2",
     "zone.js": "^0.8.26"
   },
